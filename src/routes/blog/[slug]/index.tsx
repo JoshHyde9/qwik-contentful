@@ -46,10 +46,6 @@ export default component$(() => {
   useStyles$(styles);
   const resource = useEndpoint<typeof onGet>();
 
-  useClientEffect$(() => {
-    console.log(import.meta.env.VITE_CONTENTFUL_SPACE_ID);
-  });
-
   return (
     <Resource
       value={resource}
