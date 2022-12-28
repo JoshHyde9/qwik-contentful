@@ -1,9 +1,4 @@
-import {
-  component$,
-  Resource,
-  useClientEffect$,
-  useStyles$,
-} from "@builder.io/qwik";
+import { component$, Resource, useStyles$ } from "@builder.io/qwik";
 import {
   DocumentHead,
   RequestHandler,
