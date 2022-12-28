@@ -9,9 +9,8 @@
     "build": "qwik build",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
-    "build.server": "vite build -c adaptors/netlify-edge/vite.config.ts",
     "build.types": "tsc --incremental --noEmit",
-    "deploy": "netlify deploy",
+    "deploy": "echo 'Run \"npm run qwik add\" to install a server adaptor'",
     "dev": "vite --mode ssr",
     "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
     "fmt": "prettier --write .",
@@ -33,22 +32,18 @@
     "autoprefixer": "10.4.11",
     "eslint": "8.30.0",
     "eslint-plugin-qwik": "0.16.1",
-    "netlify-cli": "^12.0.11",
     "node-fetch": "3.3.0",
     "postcss": "^8.4.16",
     "prettier": "2.8.1",
     "tailwindcss": "^3.1.8",
     "typescript": "4.9.4",
     "undici": "5.14.0",
-    "vercel": "^28.4.17",
     "vite": "4.0.1",
     "vite-tsconfig-paths": "3.5.0"
   },
   "dependencies": {
     "contentful": "^9.2.14",
     "dayjs": "^1.11.7",
-    "i": "^0.3.7",
-    "marked": "^4.2.5",
-    "npm": "^9.2.0"
+    "marked": "^4.2.5"
   }
 }
