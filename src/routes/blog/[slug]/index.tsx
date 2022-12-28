@@ -1,4 +1,9 @@
-import { component$, Resource, useStyles$ } from "@builder.io/qwik";
+import {
+  component$,
+  Resource,
+  useClientEffect$,
+  useStyles$,
+} from "@builder.io/qwik";
 import {
   DocumentHead,
   RequestHandler,
@@ -40,6 +45,10 @@ export const onGet: RequestHandler<EndpointData> = async ({
 export default component$(() => {
   useStyles$(styles);
   const resource = useEndpoint<typeof onGet>();
+
+  useClientEffect$(() => {
+    console.log(import.meta.env.VITE_CONTENTFUL_SPACE_ID);
+  });
 
   return (
     <Resource
