@@ -1,4 +1,9 @@
-import { component$, Resource, useStyles$ } from "@builder.io/qwik";
+import {
+  component$,
+  Resource,
+  useClientEffect$,
+  useStyles$,
+} from "@builder.io/qwik";
 import {
   DocumentHead,
   RequestHandler,
@@ -13,6 +18,7 @@ import styles from "./styles.css?inline";
 // Contentful
 import { contentfulClient } from "~/service/contentful";
 
+import { NotFound } from "~/components/NotFound";
 import { calcReadingTime } from "~/util/calcReadingTime";
 
 type BlogData = {
@@ -40,24 +46,37 @@ export default component$(() => {
   useStyles$(styles);
   const resource = useEndpoint<typeof onGet>();
 
+  useClientEffect$(async () => {
+    console.log(resource);
+  });
+
   return (
     <Resource
       value={resource}
       onPending={() => <div>Loading...</div>}
       onRejected={() => <div>Error</div>}
       onResolved={(post) => {
-        return (
-          <article class="container mx-auto max-w-[65ch]">
-            <h1 class="text-4xl font-bold">{post?.fields.title}</h1>
-            <p>{dayjs(post?.sys.createdAt).format("MMMM DD, YYYY")}</p>
-            <p>{calcReadingTime(post!.fields.content)} min read</p>
-            <hr class="my-5" />
-            <div
-              class="blog-styles"
-              dangerouslySetInnerHTML={marked.parse(post!.fields.content)}
-            ></div>
-          </article>
-        );
+        console.log(post);
+
+        if (!post) {
+          console.log("yeet");
+
+          // eslint-disable-next-line qwik/single-jsx-root
+          return <NotFound />;
+        } else {
+          return (
+            <article class="container mx-auto max-w-[65ch]">
+              <h1 class="text-4xl font-bold">{post.fields.title}</h1>
+              <p>{dayjs(post.sys.createdAt).format("MMMM DD, YYYY")}</p>
+              <p>{calcReadingTime(post.fields.content)} min read</p>
+              <hr class="my-5" />
+              <div
+                class="blog-styles"
+                dangerouslySetInnerHTML={marked.parse(post.fields.content)}
+              ></div>
+            </article>
+          );
+        }
       }}
     />
   );
