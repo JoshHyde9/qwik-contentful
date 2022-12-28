@@ -1,9 +1,4 @@
-import {
-  component$,
-  Resource,
-  useClientEffect$,
-  useStyles$,
-} from "@builder.io/qwik";
+import { component$, Resource, useStyles$ } from "@builder.io/qwik";
 import {
   DocumentHead,
   RequestHandler,
@@ -46,21 +41,13 @@ export default component$(() => {
   useStyles$(styles);
   const resource = useEndpoint<typeof onGet>();
 
-  useClientEffect$(async () => {
-    console.log(resource);
-  });
-
   return (
     <Resource
       value={resource}
       onPending={() => <div>Loading...</div>}
       onRejected={() => <div>Error</div>}
       onResolved={(post) => {
-        console.log(post);
-
         if (!post) {
-          console.log("yeet");
-
           // eslint-disable-next-line qwik/single-jsx-root
           return <NotFound />;
         } else {
