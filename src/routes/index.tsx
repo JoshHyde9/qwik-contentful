@@ -1,12 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import type { DocumentHead, RequestHandler } from "@builder.io/qwik-city";
-import { contentfulClient } from "~/service/contentful";
-
-export const onGet: RequestHandler = async () => {
-  const data = await contentfulClient.getEntries();
-
-  console.log(data.items);
-};
+import type { DocumentHead } from "@builder.io/qwik-city";
 
 export default component$(() => {
   return (

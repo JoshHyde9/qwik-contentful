@@ -24,6 +24,7 @@
     "@builder.io/qwik": "0.16.1",
     "@builder.io/qwik-city": "0.0.128",
     "@types/eslint": "8.4.10",
+    "@types/marked": "^4.0.8",
     "@types/node": "^18.11.16",
     "@types/node-fetch": "latest",
     "@typescript-eslint/eslint-plugin": "5.46.1",
@@ -41,6 +42,10 @@
     "vite-tsconfig-paths": "3.5.0"
   },
   "dependencies": {
-    "contentful": "^9.2.14"
+    "contentful": "^9.2.14",
+    "dayjs": "^1.11.7",
+    "i": "^0.3.7",
+    "marked": "^4.2.5",
+    "npm": "^9.2.0"
   }
 }
