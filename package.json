@@ -33,6 +33,7 @@
     "autoprefixer": "10.4.11",
     "eslint": "8.30.0",
     "eslint-plugin-qwik": "0.16.1",
+    "netlify-cli": "^12.0.11",
     "node-fetch": "3.3.0",
     "postcss": "^8.4.16",
     "prettier": "2.8.1",
