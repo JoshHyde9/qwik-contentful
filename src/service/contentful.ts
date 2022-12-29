@@ -27,7 +27,7 @@ export const getEntries = async <T>() => {
     import.meta.env.VITE_CONTENTFUL_SPACE_ID
   }/environments/master/entries/?access_token=${
     import.meta.env.VITE_CONTENTFUL_API_KEY
-  }`;
+  }&order=-sys.createdAt`;
 
   const response = await fetch(request, {
     headers: {
