@@ -15,7 +15,6 @@ import styles from "./styles.css?inline";
 // Contentful
 import { contentfulClient } from "~/service/contentful";
 
-import { NotFound } from "~/components/NotFound";
 import { calcReadingTime } from "~/util/calcReadingTime";
 
 type BlogData = {
@@ -40,7 +39,7 @@ export default component$(() => {
     <Resource
       value={resource}
       onPending={() => <div>Loading...</div>}
-      onRejected={() => <NotFound />}
+      onRejected={() => <div>Error</div>}
       onResolved={(post) => {
         return (
           <article class="container mx-auto max-w-[65ch]">
