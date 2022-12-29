@@ -1,9 +1,14 @@
 import { component$, Resource } from "@builder.io/qwik";
 import { RequestHandler, useEndpoint } from "@builder.io/qwik-city";
 import type { EntryCollection } from "contentful";
-import BlogCard from "~/components/BlogCard";
 
+// Contentful services
 import { getEntries } from "~/service/contentful";
+
+// Components
+import { BlogCard } from "~/components/BlogCard";
+
+// Util
 import { calcReadingTime } from "~/util/calcReadingTime";
 
 export const onGet: RequestHandler<EntryCollection<BlogData>> = async () => {

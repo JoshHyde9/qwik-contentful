@@ -8,7 +8,7 @@ type CardProps = {
   readingTime: number;
 };
 
-export default component$<CardProps>(
+export const BlogCard = component$<CardProps>(
   ({ title, description, publishedDate, readingTime }) => (
     <div class="flex flex-col gap-6 my-5 p-5 rounded-xl hover:bg-gray-100 transition-colors duration-200">
       <h2 class="text-2xl font-semibold">{title}</h2>
