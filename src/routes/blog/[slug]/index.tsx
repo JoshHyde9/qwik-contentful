@@ -1,10 +1,5 @@
-import {
-  component$,
-  Resource,
-  useStyles$,
-  useResource$,
-} from "@builder.io/qwik";
-import { useLocation } from "@builder.io/qwik-city";
+import { component$, Resource, useStyles$ } from "@builder.io/qwik";
+import { RequestHandler, useEndpoint } from "@builder.io/qwik-city";
 import { DocumentHead } from "@builder.io/qwik-city";
 import { Entry } from "contentful";
 import { marked } from "marked";
@@ -13,42 +8,20 @@ import dayjs from "dayjs";
 import styles from "./styles.css?inline";
 
 // Contentful
-// import { contentfulClient } from "~/service/contentful";
+import { getEntry } from "~/service/contentful";
 
 import { calcReadingTime } from "~/util/calcReadingTime";
+import { NotFound } from "~/components/NotFound";
 
-type BlogData = {
-  title: string;
-  path: string;
-  date: string;
-  content: string;
+export const onGet: RequestHandler<Entry<BlogData> | null> = async ({
+  params,
+}) => {
+  return await getEntry(params.slug);
 };
 
 export default component$(() => {
   useStyles$(styles);
-  const location = useLocation();
-
-  const resource = useResource$<Entry<BlogData> | null>(async () => {
-    const request = `https://cdn.contentful.com/spaces/${
-      import.meta.env.VITE_CONTENTFUL_SPACE_ID
-    }/environments/master/entries/${location.params.slug}?access_token=${
-      import.meta.env.VITE_CONTENTFUL_API_KEY
-    }`;
-
-    const response = await fetch(request, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    const data: Entry<BlogData> = await response.json();
-
-    if (data.sys.id === "NotFound") {
-      return null;
-    }
-
-    return data;
-  });
+  const resource = useEndpoint<Entry<BlogData> | null>();
 
   return (
     <Resource
@@ -58,7 +31,7 @@ export default component$(() => {
       onResolved={(post) => {
         if (!post) {
           // eslint-disable-next-line qwik/single-jsx-root
-          return <div>Error</div>;
+          return <NotFound />;
         } else {
           return (
             <article class="container mx-auto max-w-[65ch]">
