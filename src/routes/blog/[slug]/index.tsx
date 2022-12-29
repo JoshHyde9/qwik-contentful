@@ -1,9 +1,11 @@
-import { component$, Resource, useStyles$ } from "@builder.io/qwik";
 import {
-  DocumentHead,
-  RequestHandler,
-  useEndpoint,
-} from "@builder.io/qwik-city";
+  component$,
+  Resource,
+  useStyles$,
+  useResource$,
+} from "@builder.io/qwik";
+import { useLocation } from "@builder.io/qwik-city";
+import { DocumentHead } from "@builder.io/qwik-city";
 import { Entry } from "contentful";
 import { marked } from "marked";
 import dayjs from "dayjs";
@@ -23,23 +25,20 @@ type BlogData = {
   content: string;
 };
 
-type EndpointData = Entry<BlogData> | null;
-
-export const onGet: RequestHandler<EndpointData> = async ({
-  params,
-  response,
-}) => {
-  try {
-    return await contentfulClient.getEntry(params.slug);
-  } catch (error) {
-    response.status = 404;
-    return null;
-  }
-};
-
 export default component$(() => {
   useStyles$(styles);
-  const resource = useEndpoint<typeof onGet>();
+  const location = useLocation();
+
+  const resource = useResource$<Entry<BlogData> | null>(async () => {
+    try {
+      const data: Entry<BlogData> = await contentfulClient.getEntry(
+        location.params.slug
+      );
+      return data;
+    } catch (error) {
+      return null;
+    }
+  });
 
   return (
     <Resource
