@@ -1,6 +1,6 @@
 import type { Entry } from "contentful";
 
-export const getEntry = async (slug: string) => {
+export const getEntry = async <T>(slug: string) => {
   const request = `https://cdn.contentful.com/spaces/${
     import.meta.env.VITE_CONTENTFUL_SPACE_ID
   }/environments/master/entries/${slug}?access_token=${
@@ -13,7 +13,7 @@ export const getEntry = async (slug: string) => {
     },
   });
 
-  const data: Entry<BlogData> = await response.json();
+  const data: Entry<T> = await response.json();
 
   if (data.sys.id === "NotFound") {
     return null;

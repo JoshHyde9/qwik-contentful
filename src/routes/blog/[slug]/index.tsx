@@ -16,7 +16,7 @@ import { NotFound } from "~/components/NotFound";
 export const onGet: RequestHandler<Entry<BlogData> | null> = async ({
   params,
 }) => {
-  return await getEntry(params.slug);
+  return await getEntry<BlogData>(params.slug);
 };
 
 export default component$(() => {
