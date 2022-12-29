@@ -29,40 +29,31 @@ export default component$(() => {
   useStyles$(styles);
   const location = useLocation();
 
-  const resource = useResource$<Entry<BlogData> | null>(async () => {
-    try {
-      const data: Entry<BlogData> = await contentfulClient.getEntry(
-        location.params.slug
-      );
-      return data;
-    } catch (error) {
-      return null;
-    }
+  const resource = useResource$<Entry<BlogData>>(async () => {
+    const data: Entry<BlogData> = await contentfulClient.getEntry(
+      location.params.slug
+    );
+    return data;
   });
 
   return (
     <Resource
       value={resource}
       onPending={() => <div>Loading...</div>}
-      onRejected={() => <div>Error</div>}
+      onRejected={() => <NotFound />}
       onResolved={(post) => {
-        if (!post) {
-          // eslint-disable-next-line qwik/single-jsx-root
-          return <NotFound />;
-        } else {
-          return (
-            <article class="container mx-auto max-w-[65ch]">
-              <h1 class="text-4xl font-bold">{post.fields.title}</h1>
-              <p>{dayjs(post.sys.createdAt).format("MMMM DD, YYYY")}</p>
-              <p>{calcReadingTime(post.fields.content)} min read</p>
-              <hr class="my-5" />
-              <div
-                class="blog-styles"
-                dangerouslySetInnerHTML={marked.parse(post.fields.content)}
-              ></div>
-            </article>
-          );
-        }
+        return (
+          <article class="container mx-auto max-w-[65ch]">
+            <h1 class="text-4xl font-bold">{post.fields.title}</h1>
+            <p>{dayjs(post.sys.createdAt).format("MMMM DD, YYYY")}</p>
+            <p>{calcReadingTime(post.fields.content)} min read</p>
+            <hr class="my-5" />
+            <div
+              class="blog-styles"
+              dangerouslySetInnerHTML={marked.parse(post.fields.content)}
+            ></div>
+          </article>
+        );
       }}
     />
   );
