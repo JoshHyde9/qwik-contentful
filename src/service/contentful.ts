@@ -1,14 +1,23 @@
-import contentful from "contentful";
+import type { Entry } from "contentful";
 
-if (!import.meta.env.VITE_CONTENTFUL_API_KEY) {
-  throw new Error("Missing environment variable: VITE_CONTENTFUL_API_KEY");
-}
+export const getEntry = async (slug: string) => {
+  const request = `https://cdn.contentful.com/spaces/${
+    import.meta.env.VITE_CONTENTFUL_SPACE_ID
+  }/environments/master/entries/${slug}?access_token=${
+    import.meta.env.VITE_CONTENTFUL_API_KEY
+  }`;
 
-if (!import.meta.env.VITE_CONTENTFUL_SPACE_ID) {
-  throw new Error("Missing environment variable: VITE_CONTENTFUL_SPACE_ID");
-}
+  const response = await fetch(request, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 
-export const contentfulClient = contentful.createClient({
-  accessToken: import.meta.env.VITE_CONTENTFUL_API_KEY,
-  space: import.meta.env.VITE_CONTENTFUL_SPACE_ID,
-});
+  const data: Entry<BlogData> = await response.json();
+
+  if (data.sys.id === "NotFound") {
+    return null;
+  }
+
+  return data;
+};
