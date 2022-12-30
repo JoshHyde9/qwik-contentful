@@ -92,7 +92,7 @@ export const MobileNavItem = component$(
     return (
       <a
         class={`text-xl font-normal my-4 ${
-          nav.path === path ? "text-pink-200" : ""
+          nav.path === path ? "text-tradewind-normal" : ""
         }`}
         href={path}
         onClick$={() => (open.value = false)}
