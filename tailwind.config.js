@@ -5,10 +5,6 @@ module.exports = {
     extend: {
       colors: {
         coral: "#b56a66",
-        tradewind: {
-          normal: "#66b1b5",
-          light: "#84c0c3",
-        },
       },
     },
   },
