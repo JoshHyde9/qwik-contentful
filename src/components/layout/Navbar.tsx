@@ -5,7 +5,7 @@ export const MobileNav = component$(
   ({ open, nav }: { open: Signal<boolean>; nav: RouteNavigate }) => {
     return (
       <div
-        class={`absolute top-0 left-0 h-screen w-screen z-10 bg-white transform ${
+        class={`absolute top-0 left-0 h-screen w-screen bg-coral z-10 transform ${
           open.value ? "-translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 ease-in-out filter drop-shadow-md `}
       >
@@ -45,17 +45,17 @@ export const Navbar = component$(() => {
         >
           {/* hamburger button */}
           <span
-            class={`h-1 w-full bg-slate-300 rounded-lg transform transition duration-300 ease-in-out ${
+            class={`h-1 w-full bg-pink-200 rounded-lg transform transition duration-300 ease-in-out ${
               open.value ? "rotate-45 translate-y-3.5" : ""
             }`}
           />
           <span
-            class={`h-1 w-full bg-slate-300 rounded-lg transition-all duration-300 ease-in-out ${
+            class={`h-1 w-full bg-pink-200 rounded-lg transition-all duration-300 ease-in-out ${
               open.value ? "w-0" : "w-full"
             }`}
           />
           <span
-            class={`h-1 w-full bg-slate-300 rounded-lg transform transition duration-300 ease-in-out ${
+            class={`h-1 w-full bg-pink-200 rounded-lg transform transition duration-300 ease-in-out ${
               open.value ? "-rotate-45 -translate-y-3.5" : ""
             }`}
           />
@@ -92,7 +92,7 @@ export const MobileNavItem = component$(
     return (
       <a
         class={`text-xl font-normal my-4 ${
-          nav.path === path ? "text-pink-500" : ""
+          nav.path === path ? "text-pink-200" : ""
         }`}
         href={path}
         onClick$={() => (open.value = false)}
@@ -109,7 +109,9 @@ export const DesktopNavItem = component$(
       <a
         href={path}
         class={`px-4 transition ease-in-out duration-300 relative ${
-          nav.path === path ? "text-pink-500" : "hover:text-pink-300"
+          nav.path === path
+            ? "text-tradewind-normal"
+            : "hover:text-tradewind-light"
         }`}
       >
         {name}
