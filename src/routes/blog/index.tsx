@@ -1,5 +1,9 @@
 import { component$, Resource } from "@builder.io/qwik";
-import { RequestHandler, useEndpoint } from "@builder.io/qwik-city";
+import {
+  DocumentHead,
+  RequestHandler,
+  useEndpoint,
+} from "@builder.io/qwik-city";
 import type { EntryCollection } from "contentful";
 
 // Contentful services
@@ -46,3 +50,13 @@ export default component$(() => {
     />
   );
 });
+
+export const head: DocumentHead = {
+  title: "Blog",
+  meta: [
+    {
+      name: "description",
+      content: "Writings about what ever I feel like",
+    },
+  ],
+};
