@@ -52,12 +52,14 @@ export default component$(() => {
   );
 });
 
-export const head: DocumentHead = {
-  title: "Blog",
-  meta: [
-    {
-      name: "description",
-      content: "Using Qwik with Contenful as a CMS",
-    },
-  ],
+export const head: DocumentHead<typeof onGet> = ({ data }) => {
+  return {
+    title: data?.fields.title,
+    meta: [
+      {
+        name: "description",
+        content: data?.fields.description,
+      },
+    ],
+  };
 };
