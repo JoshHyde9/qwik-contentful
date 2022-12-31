@@ -34,7 +34,7 @@ export default component$(() => {
           return <NotFound />;
         } else {
           return (
-            <article class="container mx-auto max-w-[65ch]">
+            <article>
               <h1 class="text-4xl font-bold">{post.fields.title}</h1>
 
               <p>{dayjs(post.sys.createdAt).format("MMMM DD, YYYY")}</p>
