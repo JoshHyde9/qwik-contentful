@@ -22,7 +22,7 @@ export const onGet: RequestHandler<EntryCollection<BlogData>> = async () => {
 export const BlogCards = component$<{ posts: EntryCollection<BlogData> }>(
   ({ posts }) => (
     <section class="mx-auto max-w-[65ch] my-10">
-      <h1 class="text-3xl font-bold">Blog</h1>
+      <h1 class="text-3xl font-bold pl-5">Blog</h1>
       <hr class="my-5" />
       {posts.items.map((post) => (
         <a href={`/blog/${post.sys.id}`} key={post.sys.id}>
