@@ -33,7 +33,7 @@ export default component$(() => {
           {!post ? (
             <NotFound />
           ) : (
-            <article>
+            <article class="container mx-auto max-w-[65ch] pb-10 px-2 md:px-0 ">
               <h1 class="text-4xl font-bold">{post.fields.title}</h1>
 
               <p>{dayjs(post.sys.createdAt).format("MMMM DD, YYYY")}</p>
