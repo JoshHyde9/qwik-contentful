@@ -13,12 +13,6 @@ export const MobileNav = component$(
           <MobileNavItem name="Home" nav={nav} open={open} path="/" />
           <MobileNavItem name="About" nav={nav} open={open} path="/about/" />
           <MobileNavItem
-            name="Projects"
-            nav={nav}
-            open={open}
-            path="/projects/"
-          />
-          <MobileNavItem
             name="Contact"
             nav={nav}
             open={open}
@@ -64,7 +58,6 @@ export const Navbar = component$(() => {
         <div class="hidden mt-10 md:flex">
           <DesktopNavItem name="Home" path="/" nav={nav} />
           <DesktopNavItem name="About" path="/about/" nav={nav} />
-          <DesktopNavItem name="Projects" path="/projects/" nav={nav} />
           <DesktopNavItem name="Contact" path="/contact/" nav={nav} />
           <DesktopNavItem name="Blog" path="/blog/" nav={nav} />
         </div>
