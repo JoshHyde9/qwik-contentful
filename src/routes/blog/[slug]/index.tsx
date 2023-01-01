@@ -28,12 +28,11 @@ export default component$(() => {
       value={resource}
       onPending={() => <div>Loading...</div>}
       onRejected={() => <div>Error</div>}
-      onResolved={(post) => {
-        if (!post) {
-          // eslint-disable-next-line qwik/single-jsx-root
-          return <NotFound />;
-        } else {
-          return (
+      onResolved={(post) => (
+        <>
+          {!post ? (
+            <NotFound />
+          ) : (
             <article>
               <h1 class="text-4xl font-bold">{post.fields.title}</h1>
 
@@ -45,9 +44,9 @@ export default component$(() => {
                 dangerouslySetInnerHTML={marked.parse(post.fields.content)}
               ></div>
             </article>
-          );
-        }
-      }}
+          )}
+        </>
+      )}
     />
   );
 });
