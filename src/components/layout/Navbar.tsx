@@ -97,7 +97,7 @@ export const MobileNavItem = component$(
     return (
       <a
         class={`text-xl font-normal my-4 ${
-          nav.path === path ? "text-pink-200" : ""
+          nav.path === path && "text-pink-200"
         }`}
         href={path}
         onClick$={() => (open.value = false)}
@@ -115,10 +115,10 @@ export const DesktopNavItem = component$(
         href={path}
         class={`px-4 transition ease-in-out duration-300 relative ${
           nav.path === "/"
-            ? `${nav.path === path && "text-pink-200"} hover:text-pink-100`
+            ? `${nav.path === path && "text-pink-200"} hover:text-pink-200`
             : `${
                 nav.path === path && "text-coral"
-              } text-black hover:text-pink-200`
+              } text-black hover:text-coral/75`
         }`}
       >
         {name}
