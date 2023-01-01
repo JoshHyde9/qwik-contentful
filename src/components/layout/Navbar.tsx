@@ -39,18 +39,30 @@ export const Navbar = component$(() => {
         >
           {/* hamburger button */}
           <span
-            class={`h-1 w-full bg-pink-200 rounded-lg transform transition duration-300 ease-in-out ${
-              open.value ? "rotate-45 translate-y-3.5" : ""
+            class={`h-1 w-full rounded-lg transform transition duration-300 ease-in-out ${
+              open.value
+                ? "rotate-45 translate-y-3.5 bg-pink-200"
+                : nav.path !== "/"
+                ? "bg-coral"
+                : "bg-pink-200"
             }`}
           />
           <span
-            class={`h-1 w-full bg-pink-200 rounded-lg transition-all duration-300 ease-in-out ${
-              open.value ? "w-0" : "w-full"
+            class={`h-1 w-full rounded-lg transition-all duration-300 ease-in-out ${
+              open.value
+                ? "w-0 bg-pink-200"
+                : nav.path !== "/"
+                ? "w-full bg-coral"
+                : "bg-pink-200"
             }`}
           />
           <span
-            class={`h-1 w-full bg-pink-200 rounded-lg transform transition duration-300 ease-in-out ${
-              open.value ? "-rotate-45 -translate-y-3.5" : ""
+            class={`h-1 w-full rounded-lg transform transition duration-300 ease-in-out ${
+              open.value
+                ? "-rotate-45 -translate-y-3.5 bg-pink-200"
+                : nav.path !== "/"
+                ? "bg-coral"
+                : "bg-pink-200"
             }`}
           />
         </div>
