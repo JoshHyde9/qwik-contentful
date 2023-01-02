@@ -5,5 +5,6 @@ declare global {
     title: string;
     description: string;
     content: string;
+    slug: string;
   };
 }
