@@ -25,7 +25,7 @@ export const BlogCards = component$<{ posts: EntryCollection<BlogData> }>(
       <h1 class="text-3xl font-bold pl-5">Blog</h1>
       <hr class="my-5" />
       {posts.items.map((post) => (
-        <a href={`/blog/${post.sys.id}`} key={post.sys.id}>
+        <a href={`/blog/${post.fields.slug}`} key={post.sys.id}>
           <BlogCard
             title={post.fields.title}
             description={post.fields.description}
