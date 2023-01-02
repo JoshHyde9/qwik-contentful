@@ -6,7 +6,7 @@ export const getEntryBySlug = async <T>(slug: string) => {
   }/environments/master/entries?access_token=${
     import.meta.env.VITE_CONTENTFUL_API_KEY
   }&content_type=${
-    import.meta.env.VITE_CONTENTFUL_CONTENT_TYPE
+    import.meta.env.VITE_CONTENTFUL_CONTENT_TYPE_ID
   }&fields.slug[in]=${slug}`;
 
   const response = await fetch(request, {
