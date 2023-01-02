@@ -116,9 +116,7 @@ export const DesktopNavItem = component$(
         class={`px-4 transition ease-in-out duration-300 relative ${
           nav.path === "/"
             ? `${nav.path === path && "text-pink-200"} hover:text-pink-200`
-            : `${
-                nav.path === path && "text-coral"
-              } text-black hover:text-coral/75`
+            : `${nav.path === path && "text-coral"} hover:text-coral/75`
         }`}
       >
         {name}
