@@ -1,14 +1,14 @@
 import { component$, Resource, useStyles$ } from "@builder.io/qwik";
 import { RequestHandler, useEndpoint } from "@builder.io/qwik-city";
 import { DocumentHead } from "@builder.io/qwik-city";
-import { Entry } from "contentful";
+import type { Entry } from "contentful";
 import { marked } from "marked";
 import dayjs from "dayjs";
 
 import styles from "./styles.css?inline";
 
 // Contentful
-import { getEntry } from "~/service/contentful";
+import { getEntryBySlug } from "~/service/contentful";
 
 import { calcReadingTime } from "~/util/calcReadingTime";
 import { NotFound } from "~/components/NotFound";
@@ -16,7 +16,7 @@ import { NotFound } from "~/components/NotFound";
 export const onGet: RequestHandler<Entry<BlogData> | null> = async ({
   params,
 }) => {
-  return await getEntry<BlogData>(params.slug);
+  return await getEntryBySlug<BlogData>(params.slug);
 };
 
 export default component$(() => {
