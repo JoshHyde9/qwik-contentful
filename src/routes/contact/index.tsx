@@ -39,7 +39,7 @@ export default component$(() => {
           <FormField
             label="Email:"
             element="input"
-            type="text"
+            type="email"
             name="message"
             placeholder="john@doe.com"
             value={store.email}
