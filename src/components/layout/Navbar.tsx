@@ -78,19 +78,15 @@ export const Navbar = component$(() => {
   );
 });
 
-export interface RouteNavigate {
-  path: string;
-}
-
-export interface NavItemProps {
+type NavItemProps = {
   name: string;
   path: string;
   loc: RouteLocation;
-}
+};
 
-export interface MobileNavItemProps extends NavItemProps {
+type MobileNavItemProps = NavItemProps & {
   open: Signal<boolean>;
-}
+};
 
 export const MobileNavItem = component$(
   ({ name, loc, path, open }: MobileNavItemProps) => {
