@@ -1,4 +1,5 @@
 import { component$, $, useStore, QwikChangeEvent } from "@builder.io/qwik";
+import { DocumentHead } from "@builder.io/qwik-city";
 import { FormField } from "~/components/FormField";
 
 type EmailData = {
@@ -67,3 +68,15 @@ export default component$(() => {
     </div>
   );
 });
+
+export const head: DocumentHead = () => {
+  return {
+    title: "Contact me",
+    meta: [
+      {
+        name: "description",
+        content: "The best website available to contact me",
+      },
+    ],
+  };
+};
