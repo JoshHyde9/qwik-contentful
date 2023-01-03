@@ -1,5 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { DocumentHead } from "@builder.io/qwik-city";
+import { TimelineItem } from "~/components/TimelineItem";
 
 export default component$(() => {
   return (
@@ -16,16 +17,35 @@ export default component$(() => {
             <span class="text-coral">sysadmin</span>.
           </h2>
         </div>
-        <p>
-          As an IT career professional, I have had experience in the technical
-          and operational spaces. During my secondary and tertiary education, I
-          constantly focused on ICT and improving my knowledge from my in school
-          experience. Having established myself in the industry, I am continuing
-          to develop and improve my skills as I look for further opportunities.
-          My continually expanding knowledge is enhanced by my home
-          infrastructure, including networking equiptment, server hardware and
-          configuration.
-        </p>
+        <TimelineItem date={2022} title="Something">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
+            vel odio incidunt nostrum odit, amet est architecto consectetur
+            aliquam temporibus! Quae fugit tempora laboriosam distinctio quo
+            veritatis quam aliquam fugiat.
+          </p>
+        </TimelineItem>
+        <TimelineItem date={2021} title="Something">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
+            vel odio incidunt nostrum odit, amet est architecto consectetur
+            aliquam temporibus! Quae fugit tempora laboriosam distinctio quo
+            veritatis quam aliquam fugiat.
+          </p>
+        </TimelineItem>
+        <TimelineItem date={2020} title="Something">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
+            vel odio incidunt nostrum odit, amet est architecto consectetur
+            aliquam temporibus! Quae fugit tempora laboriosam distinctio quo
+            veritatis quam aliquam fugiat.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis,
+            ipsa ipsam? Ut numquam nisi eaque nostrum porro facilis expedita
+            iure consequatur, ipsum, magnam repellat aut.
+          </p>
+        </TimelineItem>
       </div>
     </div>
   );
