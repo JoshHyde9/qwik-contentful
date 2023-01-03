@@ -1,8 +1,8 @@
 import { component$, Signal, useSignal } from "@builder.io/qwik";
-import { useNavigate } from "@builder.io/qwik-city";
+import { type RouteLocation, useLocation } from "@builder.io/qwik-city";
 
 export const MobileNav = component$(
-  ({ open, nav }: { open: Signal<boolean>; nav: RouteNavigate }) => {
+  ({ open, loc }: { open: Signal<boolean>; loc: RouteLocation }) => {
     return (
       <div
         class={`absolute top-0 left-0 h-screen w-screen bg-coral z-10 transform ${
@@ -10,15 +10,15 @@ export const MobileNav = component$(
         } transition-transform duration-300 ease-in-out filter drop-shadow-md `}
       >
         <div class="flex flex-col mt-9 ml-4">
-          <MobileNavItem name="Home" nav={nav} open={open} path="/" />
-          <MobileNavItem name="About" nav={nav} open={open} path="/about/" />
+          <MobileNavItem name="Home" loc={loc} open={open} path="/" />
+          <MobileNavItem name="About" loc={loc} open={open} path="/about/" />
           <MobileNavItem
             name="Contact"
-            nav={nav}
+            loc={loc}
             open={open}
             path="/contact/"
           />
-          <MobileNavItem name="Blog" nav={nav} open={open} path="/blog/" />
+          <MobileNavItem name="Blog" loc={loc} open={open} path="/blog/" />
         </div>
       </div>
     );
@@ -27,11 +27,11 @@ export const MobileNav = component$(
 
 export const Navbar = component$(() => {
   const open = useSignal(false);
-  const nav = useNavigate();
+  const loc = useLocation();
 
   return (
     <nav class="flex px-4 py-4 h-20 w-screen items-center">
-      <MobileNav open={open} nav={nav} />
+      <MobileNav open={open} loc={loc} />
       <div class="w-full flex justify-end items-center md:pr-10">
         <div
           class="z-50 flex relative w-8 h-8 flex-col justify-between items-center md:hidden"
@@ -42,7 +42,7 @@ export const Navbar = component$(() => {
             class={`h-1 w-full rounded-lg transform transition duration-300 ease-in-out ${
               open.value
                 ? "rotate-45 translate-y-3.5 bg-global-warming"
-                : nav.path !== "/"
+                : loc.pathname !== "/"
                 ? "bg-coral"
                 : "bg-global-warming"
             }`}
@@ -51,7 +51,7 @@ export const Navbar = component$(() => {
             class={`h-1 w-full rounded-lg transition-all duration-300 ease-in-out ${
               open.value
                 ? "w-0 bg-global-warming"
-                : nav.path !== "/"
+                : loc.pathname !== "/"
                 ? "w-full bg-coral"
                 : "bg-global-warming"
             }`}
@@ -60,7 +60,7 @@ export const Navbar = component$(() => {
             class={`h-1 w-full rounded-lg transform transition duration-300 ease-in-out ${
               open.value
                 ? "-rotate-45 -translate-y-3.5 bg-global-warming"
-                : nav.path !== "/"
+                : loc.pathname !== "/"
                 ? "bg-coral"
                 : "bg-global-warming"
             }`}
@@ -68,10 +68,10 @@ export const Navbar = component$(() => {
         </div>
 
         <div class="hidden mt-10 md:flex">
-          <DesktopNavItem name="Home" path="/" nav={nav} />
-          <DesktopNavItem name="About" path="/about/" nav={nav} />
-          <DesktopNavItem name="Contact" path="/contact/" nav={nav} />
-          <DesktopNavItem name="Blog" path="/blog/" nav={nav} />
+          <DesktopNavItem name="Home" path="/" loc={loc} />
+          <DesktopNavItem name="About" path="/about/" loc={loc} />
+          <DesktopNavItem name="Contact" path="/contact/" loc={loc} />
+          <DesktopNavItem name="Blog" path="/blog/" loc={loc} />
         </div>
       </div>
     </nav>
@@ -85,7 +85,7 @@ export interface RouteNavigate {
 export interface NavItemProps {
   name: string;
   path: string;
-  nav: RouteNavigate;
+  loc: RouteLocation;
 }
 
 export interface MobileNavItemProps extends NavItemProps {
@@ -93,11 +93,11 @@ export interface MobileNavItemProps extends NavItemProps {
 }
 
 export const MobileNavItem = component$(
-  ({ name, nav, path, open }: MobileNavItemProps) => {
+  ({ name, loc, path, open }: MobileNavItemProps) => {
     return (
       <a
         class={`text-xl font-normal my-4 ${
-          nav.path === path && "text-global-warming"
+          loc.pathname === path && "text-global-warming"
         }`}
         href={path}
         onClick$={() => (open.value = false)}
@@ -109,16 +109,16 @@ export const MobileNavItem = component$(
 );
 
 export const DesktopNavItem = component$(
-  ({ path, name, nav }: NavItemProps) => {
+  ({ path, name, loc }: NavItemProps) => {
     return (
       <a
         href={path}
         class={`px-4 transition ease-in-out duration-300 relative ${
-          nav.path === "/"
+          loc.pathname === "/"
             ? `${
-                nav.path === path && "text-global-warming"
+                loc.pathname === path && "text-global-warming"
               } hover:text-global-warming`
-            : `${nav.path === path && "text-coral"} hover:text-coral/75`
+            : `${loc.pathname === path && "text-coral"} hover:text-coral/75`
         }`}
       >
         {name}
