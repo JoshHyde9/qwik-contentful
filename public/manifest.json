@@ -1,0 +1,24 @@
+{
+  "name": "Ryan Brooks' Portfolio",
+  "short_name": "Bope",
+  "description": "The home to all things of Ryan Brooks",
+  "start_url": "/",
+  "id": "/",
+  "lang": "en-AU",
+  "display": "standalone",
+  "background_color": "#b56a66",
+  "theme_color": "#b56a66",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/images/favicon.png",
+      "type": "image/png",
+      "sizes": "80x80"
+    },
+    {
+      "src": "/images/image-160x160.png",
+      "type": "image/png",
+      "sizes": "160x160"
+    }
+  ]
+}
