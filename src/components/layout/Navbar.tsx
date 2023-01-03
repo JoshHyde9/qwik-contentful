@@ -1,6 +1,8 @@
 import { component$, Signal, useSignal } from "@builder.io/qwik";
 import { type RouteLocation, useLocation } from "@builder.io/qwik-city";
 
+import { HamburgerItem } from "./HamburgerItem";
+
 export const MobileNav = component$(
   ({ open, loc }: { open: Signal<boolean>; loc: RouteLocation }) => {
     return (
@@ -37,33 +39,20 @@ export const Navbar = component$(() => {
           class="z-50 flex relative w-8 h-8 flex-col justify-between items-center md:hidden"
           onClick$={() => (open.value = !open.value)}
         >
-          {/* hamburger button */}
-          <span
-            class={`h-1 w-full rounded-lg transform transition duration-300 ease-in-out ${
-              open.value
-                ? "rotate-45 translate-y-3.5 bg-global-warming"
-                : loc.pathname !== "/"
-                ? "bg-coral"
-                : "bg-global-warming"
-            }`}
+          <HamburgerItem
+            position="top"
+            open={open.value}
+            pathName={loc.pathname}
           />
-          <span
-            class={`h-1 w-full rounded-lg transition-all duration-300 ease-in-out ${
-              open.value
-                ? "w-0 bg-global-warming"
-                : loc.pathname !== "/"
-                ? "w-full bg-coral"
-                : "bg-global-warming"
-            }`}
+          <HamburgerItem
+            position="middle"
+            open={open.value}
+            pathName={loc.pathname}
           />
-          <span
-            class={`h-1 w-full rounded-lg transform transition duration-300 ease-in-out ${
-              open.value
-                ? "-rotate-45 -translate-y-3.5 bg-global-warming"
-                : loc.pathname !== "/"
-                ? "bg-coral"
-                : "bg-global-warming"
-            }`}
+          <HamburgerItem
+            position="bottom"
+            open={open.value}
+            pathName={loc.pathname}
           />
         </div>
 
