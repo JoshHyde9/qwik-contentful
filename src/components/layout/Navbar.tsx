@@ -41,28 +41,28 @@ export const Navbar = component$(() => {
           <span
             class={`h-1 w-full rounded-lg transform transition duration-300 ease-in-out ${
               open.value
-                ? "rotate-45 translate-y-3.5 bg-pink-200"
+                ? "rotate-45 translate-y-3.5 bg-global-warming"
                 : nav.path !== "/"
                 ? "bg-coral"
-                : "bg-pink-200"
+                : "bg-global-warming"
             }`}
           />
           <span
             class={`h-1 w-full rounded-lg transition-all duration-300 ease-in-out ${
               open.value
-                ? "w-0 bg-pink-200"
+                ? "w-0 bg-global-warming"
                 : nav.path !== "/"
                 ? "w-full bg-coral"
-                : "bg-pink-200"
+                : "bg-global-warming"
             }`}
           />
           <span
             class={`h-1 w-full rounded-lg transform transition duration-300 ease-in-out ${
               open.value
-                ? "-rotate-45 -translate-y-3.5 bg-pink-200"
+                ? "-rotate-45 -translate-y-3.5 bg-global-warming"
                 : nav.path !== "/"
                 ? "bg-coral"
-                : "bg-pink-200"
+                : "bg-global-warming"
             }`}
           />
         </div>
@@ -97,7 +97,7 @@ export const MobileNavItem = component$(
     return (
       <a
         class={`text-xl font-normal my-4 ${
-          nav.path === path && "text-pink-200"
+          nav.path === path && "text-global-warming"
         }`}
         href={path}
         onClick$={() => (open.value = false)}
@@ -115,7 +115,9 @@ export const DesktopNavItem = component$(
         href={path}
         class={`px-4 transition ease-in-out duration-300 relative ${
           nav.path === "/"
-            ? `${nav.path === path && "text-pink-200"} hover:text-pink-200`
+            ? `${
+                nav.path === path && "text-global-warming"
+              } hover:text-global-warming`
             : `${nav.path === path && "text-coral"} hover:text-coral/75`
         }`}
       >

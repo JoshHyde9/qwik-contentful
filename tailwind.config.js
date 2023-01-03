@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         coral: "#b56a66",
+        "global-warming": "#f0d8d2",
       },
     },
   },
