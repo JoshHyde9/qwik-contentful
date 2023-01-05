@@ -24,7 +24,14 @@ export default component$(() => {
   return (
     <div class="container mx-auto max-w-[65ch]">
       <h1>Contact me</h1>
-      <form preventdefault:submit class="flex flex-col" onSubmit$={onSubmit}>
+
+      <form
+        preventdefault:submit
+        class="flex flex-col"
+        //  @ts-ignore
+        netlify
+        onSubmit$={onSubmit}
+      >
         <div class="flex flex-col my-4">
           <FormField
             label="Name:"
