@@ -18,29 +18,14 @@ export default component$(() => {
   );
 
   const onSubmit = $(() => {
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams({
-        name: store.name,
-        email: store.email,
-        message: store.message,
-      }).toString(),
-    }).then(() => console.log("Form submitted"));
+    console.log(store);
   });
 
   return (
     <div class="container mx-auto max-w-[65ch]">
       <h1>Contact me</h1>
 
-      <form
-        preventdefault:submit
-        class="flex flex-col"
-        onSubmit$={onSubmit}
-        data-netlify="true"
-        name="contact"
-      >
-        <input type="hidden" name="contact" value="contact" />
+      <form preventdefault:submit class="flex flex-col" onSubmit$={onSubmit}>
         <div class="flex flex-col my-4">
           <FormField
             label="Name:"
