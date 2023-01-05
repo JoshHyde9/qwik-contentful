@@ -17,20 +17,12 @@ export default component$(() => {
     }
   );
 
-  const onSubmit = $(async () => {
-    const response = await fetch("/", {
+  const onSubmit = $(() => {
+    fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: JSON.stringify({
-        name: store.name,
-        email: store.email,
-        message: store.message,
-      }).toString(),
-    });
-
-    const data = await response.json();
-
-    console.log(data);
+      body: "Hello World!",
+    }).then(() => console.log("Form submitted"));
   });
 
   return (
