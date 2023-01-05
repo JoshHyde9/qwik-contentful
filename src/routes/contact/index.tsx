@@ -28,10 +28,11 @@ export default component$(() => {
       <form
         preventdefault:submit
         class="flex flex-col"
-        //  @ts-ignore
-        netlify
         onSubmit$={onSubmit}
+        data-netlify="true"
+        name="contact"
       >
+        <input type="hidden" name="contact" value="contact" />
         <div class="flex flex-col my-4">
           <FormField
             label="Name:"
