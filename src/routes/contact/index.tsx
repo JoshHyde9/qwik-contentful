@@ -18,10 +18,21 @@ export default component$(() => {
   );
 
   const onSubmit = $(() => {
+    function encode(data: EmailData) {
+      return Object.keys(data)
+        .map(
+          (key) =>
+            encodeURIComponent(key) +
+            "=" +
+            encodeURIComponent(data[key as keyof EmailData])
+        )
+        .join("&");
+    }
+
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: "Hello World!",
+      body: encode({ ...store }),
     }).then(() => console.log("Form submitted"));
   });
 
