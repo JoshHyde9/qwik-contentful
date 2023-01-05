@@ -17,8 +17,16 @@ export default component$(() => {
     }
   );
 
-  const onSubmit = $(() => {
-    console.log(store);
+  const onSubmit = $(async () => {
+    const response = await fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(store).toString(),
+    });
+
+    const data = await response.json();
+
+    console.log(data);
   });
 
   return (
@@ -29,7 +37,6 @@ export default component$(() => {
         preventdefault:submit
         class="flex flex-col"
         onSubmit$={onSubmit}
-        data-netlify="true"
         name="contact"
       >
         <input type="hidden" name="contact" value="contact" />
