@@ -37,6 +37,7 @@ export default component$(() => {
         preventdefault:submit
         class="flex flex-col"
         onSubmit$={onSubmit}
+        data-netlify="true"
         name="contact"
       >
         <input type="hidden" name="contact" value="contact" />
