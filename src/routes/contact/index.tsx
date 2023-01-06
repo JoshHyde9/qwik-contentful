@@ -1,15 +1,13 @@
 import { component$, $, useStore, QwikChangeEvent } from "@builder.io/qwik";
 import { DocumentHead } from "@builder.io/qwik-city";
-import { FormField } from "~/components/FormField";
+import { ZodError } from "zod";
 
-type EmailData = {
-  name: string;
-  email: string;
-  message: string;
-};
+import { FormField } from "~/components/FormField";
+import { type EmailData, emailSchema } from "~/util/schema";
 
 export default component$(() => {
   const store = useStore<EmailData>({ name: "", email: "", message: "" });
+  const responseStore = useStore({ message: "" });
 
   const onChange = $(
     (e: QwikChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -17,8 +15,30 @@ export default component$(() => {
     }
   );
 
-  const onSubmit = $(() => {
-    console.log(store);
+  const onSubmit = $(async () => {
+    try {
+      emailSchema.parse(store);
+    } catch (err) {
+      if (err instanceof ZodError) {
+        return (responseStore.message = err.issues[0].message);
+      }
+    }
+
+    const response = await fetch("/api/", {
+      method: "POST",
+      body: JSON.stringify(store),
+    });
+
+    const data = await response.json();
+
+    if (data.errors) {
+      responseStore.message = data.errors.description;
+    } else {
+      store.name = "";
+      store.email = "";
+      store.message = "";
+      responseStore.message = "Email sent successfully";
+    }
   });
 
   return (
@@ -59,6 +79,9 @@ export default component$(() => {
             onChange={onChange}
           />
         </div>
+
+        {responseStore.message && <p class="mb-4">{responseStore.message}</p>}
+
         <button
           type="submit"
           class="bg-coral py-2 rounded-md duration-300 text-white hover:bg-coral/75"
