@@ -31,6 +31,7 @@ export const BlogCards = component$<{ posts: EntryCollection<BlogData> }>(
             description={post.fields.description}
             publishedDate={post.sys.createdAt}
             readingTime={calcReadingTime(post.fields.content)}
+            previewImage={post.fields.previewImage}
           />
         </a>
       ))}
