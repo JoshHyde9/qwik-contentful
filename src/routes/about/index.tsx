@@ -4,7 +4,7 @@ import { TimelineItem } from "~/components/TimelineItem";
 
 export default component$(() => {
   return (
-    <div class="container flex flex-col items-center mx-auto max-w-7xl px-2 mt-10 lg:mt-0 lg:flex-row lg:items-center">
+    <div class="container flex flex-col items-center mx-auto px-2 mt-10 lg:max-w-5xl lg:mt-0 lg:flex-row lg:items-center xl:max-w-6xl">
       <div class="max-w-xl">
         <img
           src="/images/me.jpg"
