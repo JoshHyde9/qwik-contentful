@@ -58,6 +58,7 @@ export default component$(() => {
         Do you have any questions, concerns or just want to say g'day? Just
         chuck me an email.
       </p>
+      <hr class="my-5" />
 
       <form
         preventdefault:submit
