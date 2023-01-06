@@ -32,7 +32,7 @@ export const Navbar = component$(() => {
   const loc = useLocation();
 
   return (
-    <nav class="flex px-4 py-4 h-20 items-center">
+    <nav class="flex px-4 py-4 h-20 w-screen items-center">
       <MobileNav open={open} loc={loc} />
       <div class="w-full flex justify-end items-center md:pr-10">
         <div

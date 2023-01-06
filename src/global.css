@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-  @apply bg-slate-50;
+  @apply bg-slate-50 overflow-x-hidden;
 }
