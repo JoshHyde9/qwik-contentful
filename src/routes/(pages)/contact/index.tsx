@@ -52,7 +52,7 @@ export default component$(() => {
   });
 
   return (
-    <div class="container mx-auto max-w-[65ch] px-2 md:px-0">
+    <div class="container mx-auto max-w-[65ch] px-2 py-10 md:px-0 dark:text-slate-50">
       <h1 class="text-4xl font-bold mb-1">Contact me</h1>
       <p>
         Do you have any questions, concerns or just want to say g'day? Just

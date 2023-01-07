@@ -42,7 +42,7 @@ type InputProps =
 export const FormField = component$<InputProps>(
   ({ label, name, element, type, rows, placeholder, onChange, value }) => {
     const classes =
-      "p-2 rounded-md border-2 border-global-warming transition-colors duration-300 focus:border-coral outline-none";
+      "bg-slate-50 p-2 rounded-md border-2 border-coral/50 transition-colors duration-300 outline-none focus:border-coral dark:bg-neutral-800";
 
     return (
       <>

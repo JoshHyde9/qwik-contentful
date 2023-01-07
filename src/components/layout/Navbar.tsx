@@ -56,7 +56,7 @@ export const Navbar = component$(() => {
           />
         </div>
 
-        <div class="hidden mt-10 md:flex">
+        <div class="hidden mt-10 md:flex dark:text-slate-50">
           <DesktopNavItem name="Home" path="/" loc={loc} />
           <DesktopNavItem name="About" path="/about/" loc={loc} />
           <DesktopNavItem name="Contact" path="/contact/" loc={loc} />
@@ -101,7 +101,8 @@ export const DesktopNavItem = component$(
         class={`px-4 transition ease-in-out duration-300 relative ${
           loc.pathname === "/"
             ? `${
-                loc.pathname === path && "text-global-warming"
+                loc.pathname === path &&
+                "text-global-warming dark:text-neutral-800"
               } hover:text-global-warming`
             : `${loc.pathname === path && "text-coral"} hover:text-coral/75`
         }`}

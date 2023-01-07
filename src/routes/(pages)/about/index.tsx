@@ -4,7 +4,7 @@ import { TimelineItem } from "~/components/TimelineItem";
 
 export default component$(() => {
   return (
-    <div class="container flex flex-col items-center mx-auto px-2 mt-10 lg:max-w-5xl lg:mt-0 lg:flex-row lg:items-center xl:max-w-6xl">
+    <div class="container flex flex-col items-center mx-auto px-2 py-10 lg:max-w-5xl lg:mt-0 lg:flex-row lg:items-center xl:max-w-6xl">
       <div class="max-w-xl">
         <img
           src="/images/me.jpg"
@@ -12,7 +12,7 @@ export default component$(() => {
           alt="Ryan Brooks"
         />
       </div>
-      <div class="bg-slate-50 lg:-ml-16 lg:mt-[33%] p-4 pl-10 rounded-md">
+      <div class="bg-slate-50 p-4 pl-10 rounded-md lg:-ml-16 lg:mt-[33%] dark:bg-neutral-800 dark:text-slate-50">
         <div class="max-w-lg pt-6">
           <h1 class="text-4xl font-semibold mb-5">Hello There!</h1>
           <h2 class="text-4xl font-semibold mb-5 lg:mb-24">
