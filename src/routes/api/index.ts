@@ -35,7 +35,7 @@ export const onPost: RequestHandler<EmailData> = async ({ request }) => {
             name: input.name,
             email: import.meta.env.VITE_SPARKPOST_DOMAIN,
           },
-          subject: "This is epic",
+          subject: "Hello from portfolio",
           html: `<html><body><p>Contact email: ${input.email}</p><p>${input.message}</p></body></html>`,
         },
       }),
