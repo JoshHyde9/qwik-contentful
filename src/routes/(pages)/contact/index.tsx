@@ -87,7 +87,7 @@ export default component$(() => {
             onChange={onChange}
           />
         </div>
-        <div class="flex flex-col my-4">
+        <div class="flex flex-col mt-4">
           <FormField
             label="Message:"
             element="textarea"
@@ -99,9 +99,11 @@ export default component$(() => {
           />
         </div>
 
-        {responseStore.message && (
-          <p class="italic text-sm mb-4">{responseStore.message}</p>
-        )}
+        <div class="h-5 my-2">
+          <p class={`italic text-sm ${!responseStore.message ? "hidden" : ""}`}>
+            {responseStore.message}
+          </p>
+        </div>
 
         <button
           type="submit"
