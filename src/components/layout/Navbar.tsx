@@ -101,10 +101,11 @@ export const DesktopNavItem = component$(
         class={`px-4 transition ease-in-out duration-300 relative ${
           loc.pathname === "/"
             ? `${
-                loc.pathname === path &&
-                "text-global-warming dark:text-neutral-800"
+                loc.pathname === path
+                  ? "text-global-warming dark:text-neutral-800"
+                  : ""
               } hover:text-global-warming`
-            : `${loc.pathname === path && "text-coral"} hover:text-coral/75`
+            : `${loc.pathname === path ? "text-coral" : ""} hover:text-coral/75`
         }`}
       >
         {name}
