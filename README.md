@@ -24,6 +24,8 @@ This project uses pnpm. Getting started canm be found [here](https://pnpm.io/ins
 
 In `src/global.d.ts`. `BlogData` matches the model that is created in Contentful.
 
+![image](https://user-images.githubusercontent.com/40751087/211268364-e7bbf268-3648-4fd7-86d5-f5a48334cabe.png)
+
 ## Deployment
 
 This is setup to deploy to Netlify's Edge. To deploy somewhere else, view Qwik's deployment docs [here](https://qwik.builder.io/integrations/deployments/overview/).
