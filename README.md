@@ -4,7 +4,9 @@ Probably the stack I am going to use for anything CMS related.
 
 ## Run locally
 
-1. Install dependencies `npm i`.
+This project uses pnpm. Getting started canm be found [here](https://pnpm.io/installation).
+
+1. Install dependencies `pnpm i`.
 2. Setup a [Contentful](https://www.contentful.com/) account.
 3. Run `cp .env.sample .env` .
 4. Add your Contentful API key and Space ID in the newly created `.env`.
@@ -16,7 +18,7 @@ Probably the stack I am going to use for anything CMS related.
    2. Create a new entry or click on an existing entry.
    3. Click on `Info` on the right-hand side.
    4. There should be an option called `Content Type ID`. This goes into your `.env`.
-6. Run `npm run dev` to start the local development server.
+6. Run `pnpm run dev` to start the local development server.
 
 ### Note
 
