@@ -38,12 +38,18 @@ export default component$(() => {
               <h1 class="text-4xl font-bold mb-5">{post.fields.title}</h1>
 
               <div class="flex items-center">
-                <Icon name="Calendar" class="stroke-white fill-none" />
+                <Icon
+                  name="Calendar"
+                  class="stroke-black fill-none dark:stroke-white"
+                />
                 <p>{dayjs(post.sys.createdAt).format("MMMM DD, YYYY")}</p>
               </div>
 
               <div class="flex items-center">
-                <Icon name="Clock" class="stroke-white fill-none" />
+                <Icon
+                  name="Clock"
+                  class="stroke-black fill-none dark:stroke-white"
+                />
                 <p>{calcReadingTime(post.fields.content)} min read</p>
               </div>
 
