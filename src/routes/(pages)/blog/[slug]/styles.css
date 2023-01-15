@@ -16,5 +16,9 @@ img {
 }
 
 p {
-  margin: 0.25rem;
+  @apply m-1;
+}
+
+p a {
+  @apply text-coral duration-300 hover:text-coral/75 dark:hover:text-global-warming;
 }
