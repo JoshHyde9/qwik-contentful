@@ -4,7 +4,7 @@ Probably the stack I am going to use for anything CMS related.
 
 ## Run locally
 
-This project uses pnpm. Getting started canm be found [here](https://pnpm.io/installation).
+This project uses pnpm. Getting started can be found [here](https://pnpm.io/installation).
 
 1. Install dependencies `pnpm i`.
 2. Setup a [Contentful](https://www.contentful.com/) account.
@@ -18,7 +18,8 @@ This project uses pnpm. Getting started canm be found [here](https://pnpm.io/ins
    2. Create a new entry or click on an existing entry.
    3. Click on `Info` on the right-hand side.
    4. There should be an option called `Content Type ID`. This goes into your `.env`.
-6. Run `pnpm run dev` to start the local development server.
+6. This project also uses [SparkPost](https://www.sparkpost.com/) for emailing. Starter plan gets you 500 emails for free / month. Getting started with SparkPost can be found [here](https://support.sparkpost.com/docs/getting-started/getting-started-sparkpost).
+7. Run `pnpm dev` to start the local development server.
 
 ### Note
 
