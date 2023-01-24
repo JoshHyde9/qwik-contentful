@@ -23,9 +23,9 @@
     "qwik": "qwik"
   },
   "devDependencies": {
-    "@azure/static-web-apps-cli": "^1.0.3",
-    "@builder.io/qwik": "0.16.1",
-    "@builder.io/qwik-city": "0.0.128",
+    "@azure/static-web-apps-cli": "^1.0.6",
+    "@builder.io/qwik": "0.16.2",
+    "@builder.io/qwik-city": "0.1.0-beta9",
     "@types/eslint": "8.4.10",
     "@types/marked": "^4.0.8",
     "@types/node": "^18.11.18",
@@ -46,9 +46,9 @@
     "vite-tsconfig-paths": "3.5.0"
   },
   "dependencies": {
-    "contentful": "^9.2.15",
+    "contentful": "^9.2.19",
     "dayjs": "^1.11.7",
-    "marked": "^4.2.5",
+    "marked": "^4.2.12",
     "sanitize-html": "^2.8.1",
     "zod": "^3.20.2"
   }

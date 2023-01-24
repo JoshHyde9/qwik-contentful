@@ -1,9 +1,5 @@
-import { component$, Resource } from "@builder.io/qwik";
-import {
-  DocumentHead,
-  RequestHandler,
-  useEndpoint,
-} from "@builder.io/qwik-city";
+import { component$ } from "@builder.io/qwik";
+import { DocumentHead, loader$ } from "@builder.io/qwik-city";
 import type { EntryCollection } from "contentful";
 
 // Contentful services
@@ -14,10 +10,11 @@ import { BlogCard } from "~/components/BlogCard";
 
 // Util
 import { calcReadingTime } from "~/util/calcReadingTime";
+import { NotFound } from "~/components/NotFound";
 
-export const onGet: RequestHandler<EntryCollection<BlogData>> = async () => {
+export const getAllPosts = loader$(async () => {
   return await getEntries<BlogData>();
-};
+});
 
 export const BlogCards = component$<{ posts: EntryCollection<BlogData> }>(
   ({ posts }) => (
@@ -42,16 +39,9 @@ export const BlogCards = component$<{ posts: EntryCollection<BlogData> }>(
 );
 
 export default component$(() => {
-  const resource = useEndpoint<EntryCollection<BlogData>>();
+  const posts = getAllPosts.use();
 
-  return (
-    <Resource
-      value={resource}
-      onPending={() => <div>Loading...</div>}
-      onRejected={() => <div>Error</div>}
-      onResolved={(posts) => <BlogCards posts={posts} />}
-    />
-  );
+  return <>{!posts.value ? <NotFound /> : <BlogCards posts={posts.value} />}</>;
 });
 
 export const head: DocumentHead = {
