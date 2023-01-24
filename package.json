@@ -28,6 +28,7 @@
     "@types/marked": "^4.0.8",
     "@types/node": "^18.11.18",
     "@types/node-fetch": "^2.6.2",
+    "@types/sanitize-html": "^2.8.0",
     "@typescript-eslint/eslint-plugin": "5.46.1",
     "@typescript-eslint/parser": "5.46.1",
     "autoprefixer": "10.4.11",
@@ -47,6 +48,7 @@
     "contentful": "^9.2.15",
     "dayjs": "^1.11.7",
     "marked": "^4.2.5",
+    "sanitize-html": "^2.8.1",
     "zod": "^3.20.2"
   }
 }

@@ -15,8 +15,21 @@ img {
   margin-bottom: 1rem;
 }
 
-p {
-  @apply m-1;
+.blog-styles p {
+  @apply my-5;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul > li::before {
+  content: "-";
+  margin-right: 5px;
 }
 
 p a {

@@ -4,6 +4,7 @@ import { DocumentHead } from "@builder.io/qwik-city";
 import type { Entry } from "contentful";
 import { marked } from "marked";
 import dayjs from "dayjs";
+import sanitizeHtml from "sanitize-html";
 
 import styles from "./styles.css?inline";
 
@@ -38,7 +39,7 @@ export default component$(() => {
               <article class="container mx-auto max-w-prose py-10 px-2 md:px-0">
                 <h1 class="text-4xl font-bold mb-5">{post.fields.title}</h1>
 
-                <div class="flex items-center">
+                <div class="flex items-center my-1 gap-x-2">
                   <Icon
                     name="Calendar"
                     class="stroke-black fill-none dark:stroke-white"
@@ -46,7 +47,7 @@ export default component$(() => {
                   <p>{dayjs(post.sys.createdAt).format("MMMM DD, YYYY")}</p>
                 </div>
 
-                <div class="flex items-center">
+                <div class="flex items-center gap-x-2">
                   <Icon
                     name="Clock"
                     class="stroke-black fill-none dark:stroke-white"
@@ -55,9 +56,12 @@ export default component$(() => {
                 </div>
 
                 <hr class="my-5" />
+
                 <div
                   class="blog-styles"
-                  dangerouslySetInnerHTML={marked.parse(post.fields.content)}
+                  dangerouslySetInnerHTML={sanitizeHtml(
+                    marked.parse(post.fields.content)
+                  )}
                 ></div>
               </article>
             )}
