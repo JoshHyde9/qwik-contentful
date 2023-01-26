@@ -9,9 +9,9 @@
     "build": "qwik build",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
-    "build.server": "vite build -c adaptors/azure-swa/vite.config.ts",
+    "build.server": "vite build -c adaptors/vercel-edge/vite.config.ts",
     "build.types": "tsc --incremental --noEmit",
-    "deploy": "netlify deploy",
+    "deploy": "vercel deploy",
     "dev": "vite --mode ssr",
     "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
     "fmt": "prettier --write .",
@@ -23,7 +23,6 @@
     "qwik": "qwik"
   },
   "devDependencies": {
-    "@azure/static-web-apps-cli": "^1.0.6",
     "@builder.io/qwik": "0.16.2",
     "@builder.io/qwik-city": "0.1.0-beta9",
     "@types/eslint": "8.4.10",
@@ -42,6 +41,7 @@
     "tailwindcss": "^3.2.4",
     "typescript": "4.9.4",
     "undici": "5.14.0",
+    "vercel": "^28.4.17",
     "vite": "4.0.1",
     "vite-tsconfig-paths": "3.5.0"
   },
