@@ -17,11 +17,15 @@ export default component$(() => {
           <h1 class="text-4xl font-semibold mb-5">Hello There!</h1>
           <h2 class="text-4xl font-semibold mb-5 lg:mb-24">
             My name is Ryan. I am a full-time{" "}
-            <span class="text-coral">virgin</span> and{" "}
-            <span class="text-coral">sysadmin</span>.
+            <span class="text-coral">virgin</span> and part-time{" "}
+            <span class="text-coral">Identity & Access Admin</span>.
           </h2>
         </div>
-        <TimelineItem date={2022} title="Something">
+        <TimelineItem
+          date={{ start: "Dec 2022", end: "Now" }}
+          title="IAM Product Manager / SME"
+          company="Department of Education (Corporate)"
+        >
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
             vel odio incidunt nostrum odit, amet est architecto consectetur
@@ -29,7 +33,11 @@ export default component$(() => {
             veritatis quam aliquam fugiat.
           </p>
         </TimelineItem>
-        <TimelineItem date={2021} title="Something">
+        <TimelineItem
+          date={{ start: "Oct 2021", end: "Dec 2022" }}
+          title="IAM Operational Support"
+          company="Department of Education (Corporate)"
+        >
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
             vel odio incidunt nostrum odit, amet est architecto consectetur
@@ -37,17 +45,28 @@ export default component$(() => {
             veritatis quam aliquam fugiat.
           </p>
         </TimelineItem>
-        <TimelineItem date={2020} title="Something">
+        <TimelineItem
+          date={{ start: "Feb 2019", end: "Oct 2021" }}
+          title="Onsite Technical Officer"
+          company="Department of Education (School)"
+        >
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
             vel odio incidunt nostrum odit, amet est architecto consectetur
             aliquam temporibus! Quae fugit tempora laboriosam distinctio quo
             veritatis quam aliquam fugiat.
           </p>
+        </TimelineItem>
+        <TimelineItem
+          date={{ start: "Nov 2017", end: "Sep 2020" }}
+          title="Team Member"
+          company="Coles Supermarkets"
+        >
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis,
-            ipsa ipsam? Ut numquam nisi eaque nostrum porro facilis expedita
-            iure consequatur, ipsum, magnam repellat aut.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
+            vel odio incidunt nostrum odit, amet est architecto consectetur
+            aliquam temporibus! Quae fugit tempora laboriosam distinctio quo
+            veritatis quam aliquam fugiat.
           </p>
         </TimelineItem>
       </div>
